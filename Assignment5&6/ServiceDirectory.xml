@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Services>
+	<Service>
+		<Name>EncryptionService</Name>
+		<Description>Encrypts and decrypts sensitive data</Description>
+	</Service>
+	<Service>
+		<Name>UserService</Name>
+		<Description>Handles user authentication and management</Description>
+	</Service>
+</Services>
