@@ -46,7 +46,6 @@
 
             .form-group input,
             .form-group button {
-                width: 100%;
                 padding: 12px;
                 font-size: 1rem;
                 border: 1px solid #ddd;
@@ -137,6 +136,63 @@
                 <asp:Button ID="btnGetCookie" runat="server" Text="Get Cookie" OnClick="btnGetCookie_Click" />
                 <asp:Label ID="lblCookieResult" runat="server" CssClass="output"></asp:Label>
             </div>
+            <asp:Label ID="lblCookieValue" runat="server" CssClass="output-label"></asp:Label>
+            <br />
+            <!-- Event Handler Section -->
+            <h2>Test Global Application Events</h2>
+            <div class="form-group">
+                <p>The session count and the last visit date and time.</p>
+                <asp:Button ID="btnGetSessionCount" runat="server" Text="Get Session Count" OnClick="btnGetSessionCount_Click" />
+                <asp:Button ID="btnGetLastVisitTime" runat="server" Text="Get Last Visit Time" OnClick="btnGetLastVisit_Click" />                           
+            </div>            
+            <asp:Label ID="lblSessionCount" runat="server" />
+            <br />
+            <asp:Label ID="lblLastVisit" runat="server" />
+
+            <!-- Test Wind Service -->
+            <h2>Test Wind Web Service</h2>
+            <div class="form-group">
+                <p>This service takes in the latitude and longitude and displays the wind speed (m/s).</p>
+                <label>Enter latitude: </label>
+                <asp:TextBox ID="txtLatitude" runat="server" Width="125"/>
+                <br />
+                <label>Enter longitude: </label>
+                <asp:TextBox ID="txtLongitude" runat="server" Width="125"/>
+                <br />
+                <br />
+                <asp:Button Text="Get Wind Speed" runat="server" ID="getWindBtn" OnClick="getWindBtn_Click" Width="175"/>
+            </div>
+            <asp:Label ID="LabelResult" runat="server"></asp:Label>   
+            
+            <!-- User Profile Cookie -->
+            <h2>Test User Profile Cookie</h2>
+            <div class="form-group">
+                <p>Enter your information. The information will be stored in cookies.</p>             
+                <!-- User's username, email, phone, and password -->
+                <label>Username: </label>
+                <asp:TextBox ID="txtUserName" runat="server" Width="201px" />
+                    
+                <label>Email: </label> 
+                <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" Width="201px"/> 
+                
+                <label>Phone: </label> 
+                <asp:TextBox ID="txtPhone" TextMode="Phone" runat="server" Width="201px"/>
+                <br />
+                <asp:Button Text="Submit" runat="server" ID="SubmitBtn" OnClick="UserProfCookieSubmitBtn_Click" />
+                <br />
+                <br />
+                <asp:Label ID="LabelUser" runat="server"></asp:Label>
+                <br />
+                <asp:Label ID="LabelEmail" runat="server"></asp:Label>
+                <br />
+                <asp:Label ID="LabelPhone" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Button Text="Clear Cookie" runat="server" ID="ClearCookieBtn" OnClick="UserProfCookieClearBtn_Click" />
+                <br />
+                <asp:Label ID="CookieMsg" runat="server"></asp:Label>
+            </div>
+
         </div>
     </form>
 </body>

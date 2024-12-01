@@ -188,6 +188,9 @@
             <li><strong>Local Encryption:</strong> Input "Hello World" → Output: (hashed string)</li>
             <li><strong>Remote Encryption:</strong> Input "Test123" → Output: (hashed string)</li>
             <li><strong>Cookie Functionality:</strong> Input "User123" → Output: "Cookie set successfully"</li>
+            <li><strong>Global Application Events: </strong> Click buttons to get Session Count and Last Visited Time and Date </li>
+            <li><strong>Wind Web Service: </strong>Input Latitude="40.7128" and Longitude="-74.0060" → Output: wind speed m/s </li>
+            <li><strong>User Profile Cookie: </strong>Input Username="Bob", Email="bob123@abc.com", Phone="123-456-7891" → Output: "User profile stored in cookies"</li>
         </ul>
     </div>
 
