@@ -237,5 +237,60 @@ namespace Assignment5_6
             lblMemberResult.Visible = true;
         }
 
+        protected void btnGetSessionCount_Click(System.Object sender, System.EventArgs e)
+        {
+            // Session Count
+            int sessionCount = (int)Application["SessionCounter"];
+            String sc = "Session Count: " + sessionCount.ToString();
+            lblSessionCount.Text = sc;
+        }
+        protected void btnGetLastVisit_Click(System.Object sender, System.EventArgs e)
+        {
+            DateTime lastVisitDate = (DateTime)Application["LastVisited"];
+            String lastVisit = "Last Visited: " + lastVisitDate.ToString();
+            lblLastVisit.Text = lastVisit;
+        }
+        protected void getWindBtn_Click(System.Object sender, System.EventArgs e)
+        {
+            WindServiceReference.Service1Client prxy = new WindServiceReference.Service1Client();
+            decimal latitude = decimal.Parse(txtLatitude.Text);
+            decimal longitude = decimal.Parse(txtLongitude.Text);
+            decimal windSpeed = prxy.WindIntensity(latitude, longitude);
+            LabelResult.Text = "Wind Speed: " + windSpeed.ToString() + " m/s ";
+        }
+        protected void UserProfCookieSubmitBtn_Click(System.Object sender, System.EventArgs e)
+        {
+            // Cookie object with a key
+            HttpCookie myCookies = new HttpCookie("UserProfile");
+            myCookies["Name"] = txtUserName.Text;
+            myCookies["Email"] = txtEmail.Text;
+            myCookies["Phone"] = txtPhone.Text;
+            myCookies.Expires = DateTime.Now.AddMinutes(5);
+            // Add object to cookies collection
+            Response.Cookies.Add(myCookies);
+            // Display the content
+            LabelUser.Text = "Name stored in cookies: " + myCookies["Name"];
+            LabelEmail.Text = "Email stored in cookies: " + myCookies["Email"];
+            LabelPhone.Text = "Phone stored in cookies: " + myCookies["Phone"];
+        }
+        protected void UserProfCookieClearBtn_Click(System.Object sender, System.EventArgs e)
+        {
+            if (Request.Cookies["UserProfile"] != null)
+            {
+                HttpCookie profileCookie = new HttpCookie("UserProfile");
+                // Remove cookie
+                profileCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(profileCookie);
+                // Clear labels
+                LabelUser.Text = string.Empty;
+                LabelEmail.Text = string.Empty;
+                LabelPhone.Text = string.Empty;
+                // Clear text boxes
+                txtUserName.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtPhone.Text = string.Empty;
+                CookieMsg.Text = "Cookie has been deleted";
+            }
+        }
     }
 }
