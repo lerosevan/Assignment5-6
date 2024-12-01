@@ -24,31 +24,67 @@ namespace Assignment5_6
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtInputString control.
+        /// txtLocalInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInputString;
+        protected global::System.Web.UI.WebControls.TextBox txtLocalInput;
 
         /// <summary>
-        /// btnHash control.
+        /// btnLocalHash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHash;
+        protected global::System.Web.UI.WebControls.Button btnLocalHash;
 
         /// <summary>
-        /// lblHashedOutput control.
+        /// lblLocalOutput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHashedOutput;
+        protected global::System.Web.UI.WebControls.Label lblLocalOutput;
+
+        /// <summary>
+        /// txtRemoteInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemoteInput;
+
+        /// <summary>
+        /// btnRemoteHash control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoteHash;
+
+        /// <summary>
+        /// lblRemoteOutput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRemoteOutput;
+
+        /// <summary>
+        /// txtCookieValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCookieValue;
 
         /// <summary>
         /// btnSetCookie control.
@@ -69,12 +105,12 @@ namespace Assignment5_6
         protected global::System.Web.UI.WebControls.Button btnGetCookie;
 
         /// <summary>
-        /// lblCookieValue control.
+        /// lblCookieResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCookieValue;
+        protected global::System.Web.UI.WebControls.Label lblCookieResult;
     }
 }

@@ -1,29 +1,36 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TryIt.aspx.cs" Inherits="Assignment5_6.TryIt" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>TryIt Page</title>
     <style>
+        /* Base Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            color: #333;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
             background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2 {
             text-align: center;
-            color: #333;
+            margin-bottom: 20px;
+            color: #0078D7;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #444;
         }
 
         .form-group {
@@ -34,42 +41,60 @@
                 display: block;
                 font-weight: bold;
                 margin-bottom: 5px;
+                font-size: 1.1rem;
             }
 
-            .form-group input, .form-group button {
+            .form-group input,
+            .form-group button {
                 width: 100%;
-                padding: 10px;
-                font-size: 16px;
+                padding: 12px;
+                font-size: 1rem;
                 border: 1px solid #ddd;
-                border-radius: 4px;
+                border-radius: 5px;
                 box-sizing: border-box;
+                margin-bottom: 15px;
             }
 
             .form-group button {
-                background-color: #007bff;
+                background-color: #0078D7;
                 color: white;
-                cursor: pointer;
                 border: none;
-                transition: background-color 0.3s;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
             }
 
                 .form-group button:hover {
                     background-color: #0056b3;
                 }
 
-        .output-label {
-            display: block;
-            margin-top: 10px;
+        .output {
+            margin-top: 15px;
             font-style: italic;
             color: #555;
         }
 
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 20px 0;
+        /* Section Divider */
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
         }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+            footer a {
+                text-decoration: none;
+                color: #0078D7;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
     </style>
 </head>
 <body>
@@ -77,24 +102,41 @@
         <div class="container">
             <h1>TryIt Page</h1>
 
-            <!-- Encryption Test Section -->
-            <h2>Test Encryption Function</h2>
+            <!-- Local Encryption Section -->
+            <h2>Local Encryption</h2>
             <div class="form-group">
-                <label for="txtInputString">Enter a string to hash:</label>
-                <asp:TextBox ID="txtInputString" runat="server" Placeholder="Enter string"></asp:TextBox>
+                <label for="txtLocalInput">Enter a string to hash locally:</label>
+                <asp:TextBox ID="txtLocalInput" runat="server" Placeholder="Enter string"></asp:TextBox>
+                <asp:Button ID="btnLocalHash" runat="server" Text="Hash Locally" OnClick="btnLocalHash_Click" />
+                <asp:Label ID="lblLocalOutput" runat="server" CssClass="output"></asp:Label>
             </div>
-            <div class="form-group">
-                <asp:Button ID="btnHash" runat="server" Text="Hash String" OnClick="btnHash_Click" />
-            </div>
-            <asp:Label ID="lblHashedOutput" runat="server" CssClass="output-label"></asp:Label>
 
-            <!-- Cookie Test Section -->
-            <h2>Test Cookie Functionality</h2>
-            <div class="cookie-buttons">
-                <asp:Button ID="btnSetCookie" runat="server" Text="Set Cookie" OnClick="btnSetCookie_Click" />
-                <asp:Button ID="btnGetCookie" runat="server" Text="Get Cookie" OnClick="btnGetCookie_Click" />
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Remote Encryption Section -->
+            <h2>Remote Encryption (Web Service)</h2>
+            <div class="form-group">
+                <label for="txtRemoteInput">Enter a string to hash remotely:</label>
+                <asp:TextBox ID="txtRemoteInput" runat="server" Placeholder="Enter string"></asp:TextBox>
+                <asp:Button ID="btnRemoteHash" runat="server" Text="Hash Remotely" OnClick="btnRemoteHash_Click" />
+                <asp:Label ID="lblRemoteOutput" runat="server" CssClass="output"></asp:Label>
             </div>
-            <asp:Label ID="lblCookieValue" runat="server" CssClass="output-label"></asp:Label>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Cookie Functionality Section -->
+            <h2>Cookie Functionality</h2>
+            <div class="form-group">
+                <label for="txtCookieValue">Set a cookie value:</label>
+                <asp:TextBox ID="txtCookieValue" runat="server" Placeholder="Enter value"></asp:TextBox>
+                <asp:Button ID="btnSetCookie" runat="server" Text="Set Cookie" OnClick="btnSetCookie_Click" />
+
+                <label for="lblCookieResult">Retrieve cookie value:</label>
+                <asp:Button ID="btnGetCookie" runat="server" Text="Get Cookie" OnClick="btnGetCookie_Click" />
+                <asp:Label ID="lblCookieResult" runat="server" CssClass="output"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

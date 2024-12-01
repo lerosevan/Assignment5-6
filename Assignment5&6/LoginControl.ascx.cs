@@ -13,14 +13,14 @@ namespace Assignment5_6
                 // Create an authentication ticket
                 FormsAuthentication.SetAuthCookie(txtUsername.Text, false);
 
-                // Redirect to the default page or the requested page
-                string redirectUrl = FormsAuthentication.GetRedirectUrl(txtUsername.Text, false);
-                Response.Redirect(redirectUrl);
+                // Redirect to Default.aspx (main page)
+                Response.Redirect("Default.aspx");
             }
             else
             {
                 lblMessage.Text = "Invalid credentials.";
             }
         }
+
     }
 }

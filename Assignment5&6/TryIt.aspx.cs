@@ -1,60 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Assignment5_6
 {
     public partial class TryIt : System.Web.UI.Page
     {
-        // Event handler for the Hash button click event
-        protected void btnHash_Click(object sender, EventArgs e)
+        protected void btnLocalHash_Click(object sender, EventArgs e)
         {
-            // Get the input string from the text box
-            string input = txtInputString.Text;
+            string input = txtLocalInput.Text; // Matches the ID in TryIt.aspx
             if (!string.IsNullOrEmpty(input))
             {
-                // Hash the input string and display the hashed value
-                string hashedValue = EncryptionHelper.HashPassword(input);
-                lblHashedOutput.Text = $"Hashed Value: {hashedValue}";
+                string hashedValue = LocalEncryption(input);
+                lblLocalOutput.Text = $"Local Hashed Value: {hashedValue}";
             }
             else
             {
-                // Display a message if the input string is empty
-                lblHashedOutput.Text = "Please enter a string to hash.";
+                lblLocalOutput.Text = "Please enter a string to hash locally.";
             }
         }
 
-        // Event handler for the Set Cookie button click event
+        protected void btnRemoteHash_Click(object sender, EventArgs e)
+        {
+            string input = txtRemoteInput.Text; // Matches the ID in TryIt.aspx
+            if (!string.IsNullOrEmpty(input))
+            {
+                try
+                {
+                    // Use the remote encryption service
+                    EncryptionServiceReference.EncryptionServiceSoapClient client = new EncryptionServiceReference.EncryptionServiceSoapClient();
+                    string hashedValue = client.HashString(input);
+                    lblRemoteOutput.Text = $"Remote Hashed Value: {hashedValue}";
+                }
+                catch (Exception ex)
+                {
+                    lblRemoteOutput.Text = $"Error: {ex.Message}";
+                }
+            }
+            else
+            {
+                lblRemoteOutput.Text = "Please enter a string to hash remotely.";
+            }
+        }
+
+        private string LocalEncryption(string input)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
+
         protected void btnSetCookie_Click(object sender, EventArgs e)
         {
-            // Create a new cookie with a test value
-            HttpCookie cookie = new HttpCookie("TestCookie");
-            cookie.Value = "This is a test cookie!";
-            cookie.Expires = DateTime.Now.AddMinutes(5);
-            // Add the cookie to the response
-            Response.Cookies.Add(cookie);
-            lblCookieValue.Text = "Cookie has been set.";
-        }
-
-        // Event handler for the Get Cookie button click event
-        protected void btnGetCookie_Click(object sender, EventArgs e)
-        {
-            // Retrieve the cookie from the request
-            HttpCookie cookie = Request.Cookies["TestCookie"];
-            if (cookie != null)
+            string cookieValue = txtCookieValue.Text;
+            if (!string.IsNullOrEmpty(cookieValue))
             {
-                // Display the cookie value if it exists
-                lblCookieValue.Text = $"Cookie Value: {cookie.Value}";
+                // Create a new cookie and set its value
+                HttpCookie userCookie = new HttpCookie("UserProfile");
+                userCookie.Value = cookieValue;
+                userCookie.Expires = DateTime.Now.AddMinutes(1); // Expires in 10 minutes
+                Response.Cookies.Add(userCookie);
+
+                lblCookieResult.Text = "Cookie set successfully!";
             }
             else
             {
-                // Display a message if the cookie is not found
-                lblCookieValue.Text = "No cookie found.";
+                lblCookieResult.Text = "Please enter a value for the cookie.";
+            }
+        }
+
+        protected void btnGetCookie_Click(object sender, EventArgs e)
+        {
+            // Retrieve the cookie
+            HttpCookie userCookie = Request.Cookies["UserProfile"];
+            if (userCookie != null)
+            {
+                lblCookieResult.Text = $"Cookie Value: {userCookie.Value}";
+            }
+            else
+            {
+                lblCookieResult.Text = "No cookie found.";
             }
         }
     }
 }
-

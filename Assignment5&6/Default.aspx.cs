@@ -14,11 +14,15 @@ namespace Assignment5_6
         // Event handler for page load
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if the page is being loaded for the first time
             if (!IsPostBack)
             {
-                // Load the service directory data
-                LoadServiceDirectory();
+                ServiceDirectoryRepeater.DataSource = new[]
+                {
+            new { ServiceName = "EncryptionService", Description = "Remote service for hashing strings" },
+            new { ServiceName = "Local Encryption", Description = "Hashing function in TryIt page" },
+            new { ServiceName = "Cookies", Description = "Manages temporary user states in TryIt page" }
+        };
+                ServiceDirectoryRepeater.DataBind();
             }
         }
 
