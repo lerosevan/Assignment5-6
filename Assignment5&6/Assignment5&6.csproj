@@ -79,6 +79,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\WindServiceReference\Service1.disco" />
+    <None Include="Connected Services\WindServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\WindServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\WindServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Default.aspx" />
     <Content Include="EncryptionService.asmx" />
     <Content Include="Global.asax" />
@@ -96,6 +103,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connected Services\EncryptionServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WindServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -161,6 +173,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\EncryptionServiceReference\EncryptionService.wsdl" />
+    <None Include="Connected Services\WindServiceReference\Service1.wsdl" />
+    <None Include="Connected Services\WindServiceReference\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WindServiceReference\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -174,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\EncryptionServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\WindServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

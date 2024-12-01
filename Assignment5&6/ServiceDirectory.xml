@@ -8,4 +8,16 @@
 		<Name>UserService</Name>
 		<Description>Handles user authentication and management</Description>
 	</Service>
+	<Service>
+		<Name>Global Application Events</Name>
+		<Description>Tracks session count and last time the application was visited </Description>
+	</Service>
+	<Service>
+		<Name>Wind Web Service</Name>
+		<Description>Displays wind speed (m/s) for the latitude and longitude input</Description>
+	</Service>
+	<Service>
+		<Name>User Cookie</Name>
+		<Description>Stores user profile in browser cookie</Description>
+	</Service>
 </Services>
