@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 namespace Assignment5_6
 {
@@ -12,12 +9,9 @@ namespace Assignment5_6
         // Method to hash a password using SHA-256
         public static string HashPassword(string password)
         {
-            // Create a new instance of SHA-256
             using (SHA256 sha256 = SHA256.Create())
             {
-                // Compute the hash of the input password
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                // Convert the byte array to a hexadecimal string
                 StringBuilder sb = new StringBuilder();
                 foreach (byte b in bytes)
                 {
@@ -26,6 +20,12 @@ namespace Assignment5_6
                 return sb.ToString();
             }
         }
+
+        // Method to verify if a plain text password matches a hashed password
+        public static bool VerifyPassword(string plainTextPassword, string hashedPassword)
+        {
+            string hashedInput = HashPassword(plainTextPassword);
+            return string.Equals(hashedInput, hashedPassword, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }
-

@@ -137,6 +137,29 @@
                 <asp:Button ID="btnGetCookie" runat="server" Text="Get Cookie" OnClick="btnGetCookie_Click" />
                 <asp:Label ID="lblCookieResult" runat="server" CssClass="output"></asp:Label>
             </div>
+
+            <!--Member Page-->
+            <h2>Member Page Functionality</h2>
+            <div class="form-group">
+                <label for="txtMemberUsername">Register as Member:</label>
+                <asp:TextBox ID="txtMemberUsername" runat="server" Placeholder="Enter Username"></asp:TextBox>
+                <asp:TextBox ID="txtMemberPassword" runat="server" TextMode="Password" Placeholder="Enter Password"></asp:TextBox>
+                <asp:Button ID="btnMemberRegister" runat="server" Text="Register Member" OnClick="btnMemberRegister_Click" />
+                <asp:Label ID="lblMemberResult" runat="server" CssClass="output"></asp:Label>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Staff Page -->
+            <h2>Staff Page Functionality</h2>
+            <div class="form-group">
+                <label for="txtStaffUsername">Login as Staff:</label>
+                <asp:TextBox ID="txtStaffUsername" runat="server" Placeholder="Enter Username"></asp:TextBox>
+                <asp:TextBox ID="txtStaffPassword" runat="server" TextMode="Password" Placeholder="Enter Password"></asp:TextBox>
+                <asp:Button ID="btnStaffLogin" runat="server" Text="Login as Staff" OnClick="btnStaffLogin_Click" />
+                <asp:Label ID="lblStaffResult" runat="server" CssClass="output"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

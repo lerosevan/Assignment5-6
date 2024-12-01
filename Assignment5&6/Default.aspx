@@ -42,30 +42,31 @@
             margin: 20px 0;
         }
 
-            .nav a {
-                text-decoration: none;
-                color: #0078D7;
-                font-weight: bold;
-                padding: 10px 20px;
-                border: 2px solid #0078D7;
-                border-radius: 5px;
-                transition: all 0.3s ease-in-out;
-            }
+        .nav a {
+            text-decoration: none;
+            color: #0078D7;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #0078D7;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+        }
 
-                .nav a:hover {
-                    background-color: #0078D7;
-                    color: #fff;
-                }
+        .nav a:hover {
+            background-color: #0078D7;
+            color: #fff;
+        }
 
-                .nav a.logout {
-                    color: #FF4D4D;
-                    border-color: #FF4D4D;
-                }
+        .nav a.logout {
+            color: #FF4D4D;
+            border-color: #FF4D4D;
+        }
 
-                    .nav a.logout:hover {
-                        background-color: #FF4D4D;
-                        color: #fff;
-                    }
+        .nav a.logout:hover {
+            background-color: #FF4D4D;
+            color: #fff;
+        }
 
         /* Service Directory Section */
         .service-directory {
@@ -77,33 +78,33 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-            .service-directory ul {
-                list-style-type: none;
-                padding: 0;
-            }
+        .service-directory ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-            .service-directory li {
-                font-size: 1rem;
-                margin: 10px 0;
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
+        .service-directory li {
+            font-size: 1rem;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-                .service-directory li:last-child {
-                    border-bottom: none;
-                }
+        .service-directory li:last-child {
+            border-bottom: none;
+        }
 
-                .service-directory li span {
-                    font-weight: bold;
-                    color: #333;
-                }
+        .service-directory li span {
+            font-weight: bold;
+            color: #333;
+        }
 
-                .service-directory li:hover {
-                    background-color: #f1f1f1;
-                }
+        .service-directory li:hover {
+            background-color: #f1f1f1;
+        }
 
         /* Footer Styles */
         footer {
@@ -113,14 +114,14 @@
             color: #777;
         }
 
-            footer a {
-                text-decoration: none;
-                color: #0078D7;
-            }
+        footer a {
+            text-decoration: none;
+            color: #0078D7;
+        }
 
-                footer a:hover {
-                    text-decoration: underline;
-                }
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         /* Test Case Styles */
         .test-cases {
@@ -132,21 +133,21 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-            .test-cases ul {
-                list-style-type: none;
-                padding: 0;
-            }
+        .test-cases ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-            .test-cases li {
-                font-size: 1rem;
-                margin: 10px 0;
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-            }
+        .test-cases li {
+            font-size: 1rem;
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
 
-                .test-cases li:last-child {
-                    border-bottom: none;
-                }
+        .test-cases li:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
@@ -156,11 +157,7 @@
     <!-- Navigation Links -->
     <div class="nav">
         <a href="TryIt.aspx">Go to TryIt Page</a>
-        <!--For Assignment 6, please ignore-->
-        <a href="Member.aspx">Go to Member Page</a>
-        <!--For Assignment 6, please ignore-->
-        <a href="Staff.aspx">Go to Staff Page</a>
-        <a href="Logout.aspx" class="logout">Logout</a>
+        <a href="Default.aspx" class="logout">Logout</a>
     </div>
 
     <!-- Service Directory Section -->
