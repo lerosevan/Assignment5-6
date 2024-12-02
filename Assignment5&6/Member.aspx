@@ -146,7 +146,6 @@
                 <p>You have access to exclusive content and features.</p>
                 <asp:Button ID="LogoutButton" runat="server" Text="Logout" CssClass="logout-btn" OnClick="LogoutButton_Click" />
             </asp:Panel>
-
         </div>
     </form>
 </body>

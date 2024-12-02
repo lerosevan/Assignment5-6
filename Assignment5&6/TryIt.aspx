@@ -140,11 +140,7 @@
             <!--Member Page-->
             <h2>Member Page Functionality</h2>
             <div class="form-group">
-                <label for="txtMemberUsername">Register as Member:</label>
-                <asp:TextBox ID="txtMemberUsername" runat="server" Placeholder="Enter Username"></asp:TextBox>
-                <asp:TextBox ID="txtMemberPassword" runat="server" TextMode="Password" Placeholder="Enter Password"></asp:TextBox>
-                <asp:Button ID="btnMemberRegister" runat="server" Text="Register Member" OnClick="btnMemberRegister_Click" />
-                <asp:Label ID="lblMemberResult" runat="server" CssClass="output"></asp:Label>
+                <asp:Button ID="btnGoToMemberPage" runat="server" Text="Go to Member Page" OnClick="btnGoToMemberPage_Click" />
             </div>
 
             <!-- Divider -->

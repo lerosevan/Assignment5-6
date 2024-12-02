@@ -114,21 +114,27 @@ namespace Assignment5_6
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedInMember"] == null)
+            if (!IsPostBack)
             {
-                // Redirect to TryIt.aspx if not logged in
-                Response.Redirect("TryIt.aspx");
-            }
-            else
-            {
-                // Display member-specific content
-                string username = Session["LoggedInMember"].ToString();
-                lblWelcomeMessage.Text = $"Welcome, {username}!";
-                ContentPanel.Visible = true;
-                LoginPanel.Visible = false;
-                RegistrationPanel.Visible = false;
+                if (Session["LoggedInMember"] == null)
+                {
+                    RegistrationPanel.Visible = true;
+                    LoginPanel.Visible = false;
+                    ContentPanel.Visible = false;
+                    GenerateCaptcha();
+                }
+                else
+                {
+                    // Show content panel for logged-in users
+                    string username = Session["LoggedInMember"].ToString();
+                    lblWelcomeMessage.Text = $"Welcome, {username}!";
+                    RegistrationPanel.Visible = false;
+                    LoginPanel.Visible = false;
+                    ContentPanel.Visible = true;
+                }
             }
         }
+
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
             Session.Clear(); // Clear session variables

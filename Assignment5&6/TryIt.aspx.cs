@@ -292,5 +292,11 @@ namespace Assignment5_6
                 CookieMsg.Text = "Cookie has been deleted";
             }
         }
+
+        protected void btnGoToMemberPage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Member.aspx");
+        }
+
     }
 }
